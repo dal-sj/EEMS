@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+# Data (원본 데이터는 커밋하지 않음 — 다운로드 스크립트만)
+data/raw/
+*.parquet
+# Java / Node
+build/
+target/
+.gradle/
+node_modules/
+dist/
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+.env
