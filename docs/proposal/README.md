@@ -83,11 +83,12 @@
 
 | 시점 | 내용 | 출처 |
 |---|---|---|
-| 2021-09 | 제주, 누진제와 계시별 요금 중 선택 가능 | [경북일보](https://www.kyongbuk.co.kr/news/articleView.html?idxno=4078239) |
-| 2026-04 | 정부, 계절·시간대별 요금 개편안 발표. 산업용부터 시행 | [정책브리핑](https://www.korea.kr/briefing/policyBriefingView.do?newsId=156755866) |
-| 2026 | 주택용은 **선택 적용을 단계적으로 확대** 추진(보도) | [머니투데이](https://www.mt.co.kr/economy/2026/04/14/2026041415281687111) · [서울경제](https://www.sedaily.com/article/13984803) |
-| 2026-05 | 신축 아파트 원격검침(AMI) 데이터 한전 연계 의무화 추진(보도) | [네이트 뉴스](https://m.news.nate.com/view/20260505n10938) |
-| 2026 여름 | 에너지캐시백 추가 혜택: 7\~8월 평일 17\~20시 절감분 **1kWh당 500원**(AMI 가구) | [위키독스](https://wikidocs.net/blog/@moneyalim/25007/) · [카드고릴라](https://www.card-gorilla.com/contents/detail/4311) |
+| 2021-09 | 제주, 누진제와 계시별 요금 중 선택 가능 | [머니투데이](https://www.mt.co.kr/economy/2026/04/14/2026041415281687111) |
+| 2024-11 | 정부, 주택용 계절·시간대별 차등 요금 단계적 도입 방침(보도) | [서울경제](https://www.sedaily.com/article/13984803) |
+| 2026-04 | 계절·시간대별 요금 개편 시행(4/16), 산업용(을)·전기차 충전에 우선 적용. "주택용에 대해서도 시간대별 요금 적용을 확대해 나갈 계획" — 단, 전국 시행은 당장 계획 없음 | [정책브리핑](https://www.korea.kr/briefing/policyBriefingView.do?newsId=156755866) |
+| 2026-04 | 장관: 주택용은 AMI(원격검침) 보급이 부족해 "단계적으로 시행" | [머니투데이](https://www.mt.co.kr/economy/2026/04/14/2026041415281687111) |
+| 2026-06 | 에너지캐시백 여름 혜택: 7\~8월 평일 17\~20시, 직전 2개년 같은 시간대 평균보다 절감 시 1kWh당 500원 상당(AMI 가구) | [세계일보](https://www.segye.com/newsView/20260628505930) |
+| 2026-07 | 장관: "제주도부터 시작해 전국으로 확대해 나갈 계획" | [경북일보](https://www.kyongbuk.co.kr/news/articleView.html?idxno=4078239) |
 
 > **전제**: 이 프로젝트는 **시간대별 요금(S2) + DR**을 기본 시나리오로 고정한다. 현행 누진제(S1)는 비교용으로만 두고, 그 한계는 14장에 적는다.
 
@@ -249,11 +250,11 @@ flowchart LR
 
 | 상품 | 하는 일 | 정산·기준선 담당 | 사용자 보상 |
 |---|---|---|---|
-| 삼성 SmartThings Energy | 누진 구간 도달 전 가전을 "AI 절약모드"로 전환(일부 모델), 주민DR 발령 시 자동 참여 | 한전·지자체·수요관리사업자 | 절약 미션 인센티브 |
+| 삼성 SmartThings Energy | 매일 예측 사용량을 목표치와 비교(AI), 누진 구간 도달 전 가전을 "AI 절약모드"로 전환. 주민DR 시범사업 참여 | 한전·지자체·수요관리사업자 | 절약 미션 인센티브 |
 | LG ThinQ · 한전 에너지케어앱 | 단지별 수요관리앱의 가입 창구 (AMI 설치 + 수요관리사업자가 있는 단지 우선) | 수요관리사업자 | 절약 미션 인센티브 |
 | 한전 주택용 에너지캐시백 | 기기 제어 없음, 월 절감량만 측정 | 한전. 기준선 = 직전 2개년 동월 평균 | 절감 kWh × 단가 |
-| Octopus Saving Sessions (영국) | 1시간 절약 이벤트 | Octopus(국가 프로그램 기반). 기준선 = 최근 10일 동시각 평균 | 포인트 → 요금 차감 |
-| Google Nest Rush Hour Rewards (미국) | 피크 시 온도조절기를 최대 4°F 조정, 사전 냉방 | 전력회사 | 가입·시즌 정액 |
+| Octopus Saving Sessions (영국) | 1시간 절약 이벤트 | Octopus. 기준 = 평소 사용량 대비 | 포인트 → 요금 차감 |
+| Google Nest Rush Hour Rewards (미국) | 피크 시 온도조절기를 최대 4°F 조정, 사전 냉방 | 전력회사 | 가입·유지 보상(전력회사별 상이) |
 
 공통점: 제품은 **기기 제어·자동 참여**만 하고, 정산은 **프로그램 운영자**가 맡는다. EEMS도 정산 규칙을 직접 구현하지 않고, 제도를 세 요소로 추상화해 **설정만 교체**한다.
 
@@ -264,7 +265,7 @@ flowchart LR
 | 보상 | 감축 kWh × 단가 | 절감 kWh × 절감률 구간별 단가 |
 
 - 결과는 실제 정산이 아닌 **정산 추정치**로 표기한다. 단가·기준은 구현 시점 공고로 갱신한다.
-- **차별점**: 상용 제품의 "구간 도달 직전 감축"(C1) 대비 **예측 기반 사전 계획(MPC)** 의 효과를 같은 조건에서 비교해 증명한다.
+- **차별점**: 상용 제품도 사용량을 예측한다. 차이는 예측 결과로 **절약 모드를 일괄 전환**하느냐(C1), **시간대별 운전 계획**(사전 냉방·시간 이동)을 세우느냐(MPC)다. 이 차이의 효과를 같은 조건에서 비교해 증명한다.
 
 ---
 
@@ -469,7 +470,7 @@ flowchart LR
 | ID | 제어기 | 설명 | 의미 |
 |---|---|---|---|
 | **C0** | 무제어 | 데이터 그대로 | 기준선 |
-| **C1** | 규칙 기반 | "누진 구간 도달 직전 감축", "경부하에만 세탁기", "고정 설정온도" | 상용 스마트홈 앱 방식(추정). **주 비교 대상** |
+| **C1** | 규칙 기반 | 예측 사용량이 목표를 넘으면 절약 모드 일괄 전환, "경부하에만 세탁기", "고정 설정온도" | 상용 스마트홈 앱 방식(공개 설명 기반 추정). **주 비교 대상** |
 | **C2** | 반응형 DR | DR 발령 시 지정 기기 OFF (기존 프로젝트 방식) | 기존 방식과의 비교 |
 | **C3** | MPC + 단순 예측 | 예측 = 어제 같은 시각 | AI 예측의 기여 분리 |
 | **C4** | **MPC + Edge AI 예측 (제안)** | LightGBM/소형 신경망 예측 + 선호 학습 | 본 프로젝트 |
@@ -664,7 +665,7 @@ EEMS/
 **정직한 한계**
 
 - 현행 누진제에서는 **시간 이동만으로 요금이 줄지 않는다** — S1의 효과는 주로 구간 관리와 DR 보상에서 나온다.
-- 기본 시나리오(S2)의 주택용 시간대별 요금은 2026년 기준 **선택 적용 확대 단계**다. 전국 시행 시점과 단가는 정해지지 않았다.
+- 기본 시나리오(S2)의 주택용 시간대별 요금은 2026년 기준 정부가 **확대 계획**을 밝힌 단계이며, 전국 시행은 당장 계획되어 있지 않다(1.3절). 시점과 단가는 정해지지 않았다.
 - 시간 이동은 **에너지(kWh) 자체를 줄이지 않을 수 있다.** 이 프로젝트의 핵심 성과는 kWh보다 **비용·피크·DR 이행**이다.
 - 시뮬레이션 결과는 모델 가정에 의존한다 → HIL·실물 단계로 오차를 측정해 함께 보고한다.
 
@@ -713,14 +714,14 @@ EEMS/
 - 한국전력거래소, 전력시장운영규칙 [별표 28] 고객기준부하 산정 기준 — [KPX 규칙](https://marketrule.kpx.or.kr/lmxdata/attach/2025/5/upload_5127126665285383397_p158.pdf)
 - 한국전력거래소, 수요자원거래시장 현황 — [KPX](https://kpx.or.kr/board.es?act=view&bid=0088&list_no=77044&mid=a10102000000&tag=)
 - 한전, 주택용 계절별·시간대별 요금제 실증 — [에너지경제](https://m.ekn.kr/view.php?key=454240)
-- 한전, 주택용 에너지캐시백 — [슬기로운 전기생활](https://esp.kepco.co.kr)
+- 한전, 주택용 에너지캐시백 — [슬기로운 전기생활](https://esp.kepco.co.kr) · [헤럴드경제, 2026-05-13](https://www.heraldk.com/article/2026051317125061992)(기준선 = 직전 2개년 동월 평균)
 - 정책브리핑, 스마트기기 자동 DR(Auto DR) 보상 — [korea.kr](https://www.korea.kr/news/policyNewsView.do?newsId=148915851)
 
 **유사 상품**
-- 삼성 SmartThings Energy AI 절약모드·Auto DR — [삼성](https://www.samsung.com/sec/smartthings/auto-dr/) · [삼성 뉴스룸](https://news.samsung.com/kr/%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-ai%eb%a1%9c-%ec%97%90%eb%84%88%ec%a7%80-%ec%a0%88%ec%95%bd%eb%8f%84-%ec%8a%a4%eb%a7%88%ed%8a%b8%ed%95%98%ea%b2%8c-tv%ed%8e%b8)
+- 삼성 SmartThings Energy AI 절약모드 — [인사이트, 2022-06-29](https://www.insight.co.kr/news/401608) · 주민DR 시범사업 — [KHARN, 2023-05-10](https://www.kharn.kr/mobile/article.html?no=22110)
 - 서울시 주민DR 가입 경로(SmartThings·ThinQ·에너지케어앱) — [유스연합, 2025-04-25](https://www.youthassembly.kr/news/836564)
-- Octopus Energy Saving Sessions — [Octopus](https://octopus.energy/press/believe-it-or-watt-octopus-energy-customers-provide-108mw-of-grid-flexibility-in-first-saving-session-equivalent-of-a-gas-power-station/)
-- Google Nest Rush Hour Rewards — [Google](https://support.google.com/googlenest/answer/11434786?hl=en)
+- Octopus Energy Saving Sessions — [Octopus, 2022-11](https://octopus.energy/press/believe-it-or-watt-octopus-energy-customers-provide-108mw-of-grid-flexibility-in-first-saving-session-equivalent-of-a-gas-power-station/) · [Household Money Saving, 2026-10](https://www.householdmoneysaving.com/?p=21619)
+- Google Nest Rush Hour Rewards — [Renew Home (Hydro One)](https://support.renewhome.com/en_us/hydro-one-S14DU1fhlg.md)
 
 **기술**
 - OpenADR Alliance, OpenADR 3.0 — https://www.openadr.org
