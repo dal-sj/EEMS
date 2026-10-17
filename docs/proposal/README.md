@@ -232,7 +232,17 @@ flowchart LR
 
 ### 4.6 제도 추상화 — 규칙이 바뀌어도 코드는 그대로
 
-국내외 상용 제품은 기기 제어·자동 참여만 하고, 정산은 프로그램 운영자(한전·수요관리사업자·전력회사)가 맡는다. EEMS도 정산 규칙을 직접 구현하지 않고, 제도를 세 요소로 추상화해 **설정만 교체**한다.
+**유사 상품 비교** (2026-10 조사, 각 사 공개 자료·보도 기준, 출처는 16장)
+
+| 상품 | 하는 일 | 정산·기준선 담당 | 사용자 보상 |
+|---|---|---|---|
+| 삼성 SmartThings Energy | 누진 구간 도달 전 가전을 "AI 절약모드"로 전환(일부 모델), 주민DR 발령 시 자동 참여 | 한전·지자체·수요관리사업자 | 절약 미션 인센티브 |
+| LG ThinQ · 한전 에너지케어앱 | 단지별 수요관리앱의 가입 창구 (AMI 설치 + 수요관리사업자가 있는 단지 우선) | 수요관리사업자 | 절약 미션 인센티브 |
+| 한전 주택용 에너지캐시백 | 기기 제어 없음, 월 절감량만 측정 | 한전. 기준선 = 직전 2개년 동월 평균 | 절감 kWh × 단가 |
+| Octopus Saving Sessions (영국) | 1시간 절약 이벤트 | Octopus(국가 프로그램 기반). 기준선 = 최근 10일 동시각 평균 | 포인트 → 요금 차감 |
+| Google Nest Rush Hour Rewards (미국) | 피크 시 온도조절기를 최대 4°F 조정, 사전 냉방 | 전력회사 | 가입·시즌 정액 |
+
+공통점: 제품은 **기기 제어·자동 참여**만 하고, 정산은 **프로그램 운영자**가 맡는다. EEMS도 정산 규칙을 직접 구현하지 않고, 제도를 세 요소로 추상화해 **설정만 교체**한다.
 
 | 요소 | 국민DR | 주택용 에너지캐시백 |
 |---|---|---|
@@ -693,7 +703,8 @@ EEMS/
 - 정책브리핑, 스마트기기 자동 DR(Auto DR) 보상 — [korea.kr](https://www.korea.kr/news/policyNewsView.do?newsId=148915851)
 
 **유사 상품**
-- 삼성 SmartThings Energy AI 절약모드·Auto DR — [삼성](https://www.samsung.com/sec/smartthings/auto-dr/)
+- 삼성 SmartThings Energy AI 절약모드·Auto DR — [삼성](https://www.samsung.com/sec/smartthings/auto-dr/) · [삼성 뉴스룸](https://news.samsung.com/kr/%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-ai%eb%a1%9c-%ec%97%90%eb%84%88%ec%a7%80-%ec%a0%88%ec%95%bd%eb%8f%84-%ec%8a%a4%eb%a7%88%ed%8a%b8%ed%95%98%ea%b2%8c-tv%ed%8e%b8)
+- 서울시 주민DR 가입 경로(SmartThings·ThinQ·에너지케어앱) — [유스연합, 2025-04-25](https://www.youthassembly.kr/news/836564)
 - Octopus Energy Saving Sessions — [Octopus](https://octopus.energy/press/believe-it-or-watt-octopus-energy-customers-provide-108mw-of-grid-flexibility-in-first-saving-session-equivalent-of-a-gas-power-station/)
 - Google Nest Rush Hour Rewards — [Google](https://support.google.com/googlenest/answer/11434786?hl=en)
 
